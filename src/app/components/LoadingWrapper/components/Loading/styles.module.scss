@@ -1,0 +1,6 @@
+@import 'src/scss/animations';
+
+.spinner-container {
+  @extend %appear;
+  margin: auto;
+}

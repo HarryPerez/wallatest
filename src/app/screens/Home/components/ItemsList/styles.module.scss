@@ -1,0 +1,34 @@
+@import 'variables/colors';
+@import 'variables/breakpoints';
+
+.items-list-container {
+  height: 100vh;
+  padding-top: 90px;
+  position: absolute;
+}
+
+.items-list-body-container {
+  background-color: $wallatest-gray;
+  margin-top: 32px;
+  padding-top: 40px;
+
+  @include sm {
+    background: $white;
+  }
+}
+
+.items-list {
+  background: $wallatest-gray;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,.5);
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}

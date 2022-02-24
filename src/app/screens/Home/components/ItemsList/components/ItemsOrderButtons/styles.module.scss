@@ -1,0 +1,14 @@
+@import 'variables/colors';
+@import 'variables/breakpoints';
+
+.items-order-buttons-container {
+  padding-bottom: 40px;
+}
+
+.button {
+  margin-right: 20px !important;
+
+  @include sm {
+    margin-right: 5px !important;
+  }
+}

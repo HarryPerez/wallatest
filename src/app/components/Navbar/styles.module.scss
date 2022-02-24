@@ -1,0 +1,20 @@
+@import 'variables/colors';
+
+.navbar-container {
+  background-color: $white;
+  border-bottom: 1px solid;
+  border-color: $wallatest-light-gray;
+  display: flex;
+  height: 66px;
+  position: sticky;
+  position: -webkit-sticky;
+  transition: top 150ms ease;
+  padding: 0 16px;
+  top: 0;
+  z-index: 1001;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+}

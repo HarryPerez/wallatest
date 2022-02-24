@@ -1,0 +1,112 @@
+@import './variables/breakpoints';
+@import './variables/colors';
+
+// Font weights
+
+.bold {
+  font-weight: 700;
+}
+
+.regular {
+  font-weight: 400;
+}
+
+.light {
+  font-weight: 300;
+}
+
+// Format text
+
+.text-center {
+  text-align: center;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.line-through {
+  text-decoration: line-through;
+}
+
+.large-title {
+  font-size: 50px;
+  line-height: 60px;
+  text-align: center;
+  @include md {
+    font-size: 40px;
+  }
+  @include sm {
+    font-size: 30px;
+  }
+}
+
+.title {
+  font-family: Wallie, Helvetica;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: normal;
+  
+  @include md {
+    font-size: 30px;
+  }
+  @include sm {
+    font-size: 24px;
+  }
+  line-height: 40px;
+}
+
+.subtitle {
+  font-size: 30px;
+  @include md {
+    font-size: 24px;
+  }
+  @include sm {
+    font-size: 18px;
+  }
+  line-height: 35px;
+}
+
+.large-text {
+  font-size: 24px;
+  @include md {
+    font-size: 20px;
+  }
+  @include sm {
+    font-size: 16px;
+  }
+  line-height: 30px;
+}
+
+.text {
+  font-size: 20px;
+  line-height: 24px;
+  @include md {
+    font-size: 16px;
+  }
+  @include sm {
+    font-size: 14px;
+  }
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.error {
+  color: $valencia;
+  font-size: 24px;
+  padding-top: 5px;
+  @include md {
+    font-size: 16px;
+  }
+  @include sm {
+    font-size: 14px;
+  }
+}

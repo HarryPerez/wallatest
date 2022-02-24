@@ -1,0 +1,25 @@
+@import 'variables/colors';
+
+.favourites-list {
+  height: 350px;
+  margin: 10px;
+  overflow: auto;
+}
+
+.items-search-input {
+  background-color: $wallatest-gray;
+  border: 1px solid transparent;
+  font-size: .875rem;
+  padding: 0 32px 0 44px;
+  position: relative;
+
+  &:focus {
+    background-color: $white;
+    border: 1px solid $wallatest-green;
+  }
+
+  &:hover {
+    background-color: $white;
+    border: 1px solid $wallatest-green;
+  }
+}

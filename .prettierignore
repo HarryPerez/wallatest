@@ -1,0 +1,6 @@
+*.scss
+build
+coverage
+node_modules
+public
+.yalc

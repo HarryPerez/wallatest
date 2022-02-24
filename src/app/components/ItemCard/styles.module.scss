@@ -1,0 +1,84 @@
+@import 'variables/colors';
+@import 'variables/breakpoints';
+
+.item-card-container {
+  background: $white;
+  border-radius: 5px;
+  box-shadow: 0 0 0 1px $wallatest-gray;
+  display: block;
+  margin: 20px;
+  overflow: hidden;
+  padding: 4px 4px 16px;
+  transition: all .15s ease;
+  text-align: left;
+  width: 225px;
+
+  @include xxl {
+    margin: 15px;
+  }
+
+  @include xl {
+    margin: 5px;
+  }
+
+  -webkit-transition: all .15s ease;
+  -moz-transition: all .15s ease;
+  -o-transition: all .15s ease;
+}
+
+.full-info {
+  height: 500px;
+}
+
+.min-info {
+  height: 225px;
+}
+
+.item-card-image {
+  border-radius: 4px;
+  display: block;
+  flex: 0 1 calc(20% - 8px);
+  height: 194px;
+  object-fit: cover;
+}
+
+.item-card-title {
+  color: $wallatest-black;
+  font-size: .875rem;
+  margin: 5px 0;
+  padding: 0 8px;
+}
+
+.item-card-email {
+  color: $wallatest-black;
+  font-size: .875rem;
+  margin: 5px 0;
+  padding: 0 8px;
+}
+
+.item-card-price {
+  color: $wallatest-black;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 8px;
+  padding: 0 8px;
+}
+
+.item-card-description {
+  color: $wallatest-light-black;
+  font-size: .875rem;
+  line-height: 1.2;
+  margin-top: 20px;
+  overflow: hidden;
+  padding: 0 8px;
+  text-overflow: ellipsis;
+}
+
+.item-card-email {
+  color: $wallatest-light-black;
+  font-size: .875rem;
+  line-height: 1.2;
+  margin-top: 5px;
+  overflow: hidden;
+  padding: 0 8px;
+}

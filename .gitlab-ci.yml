@@ -1,0 +1,91 @@
+stages:
+  - test
+  - build
+  - deploy
+
+workflow:
+  rules:
+    - changes:
+        - packages/front/*
+
+cache:
+  paths:
+    - node_modules/
+
+test:
+  image: node:lts
+  stage: test
+  script:
+    - cd ./packages/front
+    - npm install
+    - npm run test
+
+build_dev:
+  image: node:lts
+  stage: build
+  script:
+    - cd ./packages/front
+    - npm install
+    - npm run lint
+    - npm run build development
+    - echo "S3_BUCKET=${S3_BUCKET_DEV}" >> build.env
+  only:
+    refs:
+      - development
+  artifacts:
+    paths:
+    - build/
+    reports:
+      dotenv: build.env
+
+build_prod:
+  image: node:lts
+  stage: build
+  script:
+    - cd ./packages/front
+    - npm install
+    - npm run lint
+    - npm run test
+    - npm run sync-env
+    - npm run build master
+    - npm run clean
+    - mv build/ ${CI_PROJECT_DIR}
+    - echo "S3_BUCKET=${S3_BUCKET_PROD}" >> build.env
+  only:
+    refs:
+      - master # main
+  artifacts:
+    paths:
+    - build/
+    reports:
+      dotenv: build.env
+
+.deploy:
+  image: ubuntu:latest
+  script:
+    - /bin/bash deploy.sh APP_ENV"
+
+.deploy_aws:
+  image: python:latest
+  when: manual
+  script: |
+    pip install awscli #Install awscli tools
+    aws s3 sync build/ s3://${S3_BUCKET}
+
+deploy_dev:
+  extends: .deploy_aws
+  stage: deploy
+  dependencies:
+    - build_dev
+  only:
+    refs:
+      - develop
+
+deploy_prod:
+  extends: .deploy_aws
+  stage: deploy
+  dependencies:
+    - build_prod
+  only:
+    refs:
+      - master
